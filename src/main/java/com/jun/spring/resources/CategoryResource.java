@@ -1,7 +1,7 @@
 package com.jun.spring.resources;
 
-import com.jun.spring.entities.Order;
-import com.jun.spring.services.OrderService;
+import com.jun.spring.entities.Category;
+import com.jun.spring.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,24 +11,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-// Esse é o meu controlador REST que diz respeito a rota orders!
+// Esse é o meu controlador REST que diz respeito a rota categories!
 @RestController
-@RequestMapping(value = "/orders")
-public class OrderResource {
+@RequestMapping(value = "/categories")
+public class CategoryResource {
 
     @Autowired
-    private OrderService service;
+    private CategoryService service;
 
     // Requisição do tipo GET
     @GetMapping
-    public ResponseEntity<List<Order>> findAll() {
-        List<Order> list = service.findAll();
+    public ResponseEntity<List<Category>> findAll() {
+        List<Category> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Order> findById(@PathVariable Long id) {
-        Order obj = service.findById(id);
+    public ResponseEntity<Category> findById(@PathVariable Long id) {
+        Category obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 }
