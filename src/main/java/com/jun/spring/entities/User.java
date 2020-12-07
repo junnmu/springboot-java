@@ -1,5 +1,7 @@
 package com.jun.spring.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,6 +22,8 @@ public class User implements Serializable {
 
     // Crio apenas o get quando há uma coleção associada
     // Relacionamento um para muitos
+    // Fazendo o jackson ignorar para não acontecer looping de relacionamentos nas requisições
+    @JsonIgnore
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
 
