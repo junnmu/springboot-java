@@ -1,7 +1,7 @@
 package com.jun.spring.services;
 
-import com.jun.spring.entities.User;
-import com.jun.spring.repositories.UserRepository;
+import com.jun.spring.entities.Product;
+import com.jun.spring.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,17 +10,17 @@ import java.util.Optional;
 
 // Registrando que minha classe é um componente do Spring, especialmente um serviço
 @Service
-public class UserService {
+public class ProductService {
 
     @Autowired
-    private UserRepository repository;
+    private ProductRepository repository;
 
-    public List<User> findAll() {
+    public List<Product> findAll() {
         return repository.findAll();
     }
 
-    public User findById(Long id) {
-        Optional<User> obj = repository.findById(id);
+    public Product findById(Long id) {
+        Optional<Product> obj = repository.findById(id);
         return obj.get();
     }
 }

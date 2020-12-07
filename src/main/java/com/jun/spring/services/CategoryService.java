@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-// Registrando que minha classe é um componente do String, especialmente um serviço
+// Registrando que minha classe é um componente do Spring, especialmente um serviço
 @Service
 public class CategoryService {
 
