@@ -1,5 +1,6 @@
 package com.jun.spring.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jun.spring.entities.pk.OrderItemPK;
 
 import javax.persistence.EmbeddedId;
@@ -9,12 +10,12 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tabe_order_item")
+@Table(name = "table_order_item")
 public class OrderItem implements Serializable {
 
     // Notação de Id composto
     @EmbeddedId
-    private OrderItemPK id;
+    private OrderItemPK id = new OrderItemPK();
 
     private Integer quantity;
     // Esse price precisa existir por motivos de histórico
@@ -34,6 +35,7 @@ public class OrderItem implements Serializable {
     }
 
     // Gets e Sets para Order e Product feitos manualmente
+    @JsonIgnore
     public Order getOrder() {
         return id.getOrder();
     }
