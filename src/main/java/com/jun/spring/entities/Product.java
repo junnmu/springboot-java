@@ -18,6 +18,7 @@ public class Product implements Serializable {
     private Double price;
     private String imgUrl;
 
+    // Notação muitos para muitos acompanhada de tabela associativa
     @ManyToMany
     @JoinTable(name = "tb_product_category",
             joinColumns = @JoinColumn(name = "product_id"),

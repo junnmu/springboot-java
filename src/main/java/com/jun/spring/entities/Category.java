@@ -17,6 +17,8 @@ public class Category implements Serializable {
     private Long id;
     private String name;
 
+    // Falando pro Jackson ignorar
+    // Confirmando muitos para muitos com Product (leva o nome do Set da outra classe como parametro)
     @JsonIgnore
     @ManyToMany(mappedBy = "categories")
     private Set<Product> products = new HashSet<>();
